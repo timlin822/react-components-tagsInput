@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import {useState,useEffect} from 'react';
+
+import TagsInput from 'components/tagsInput/TagsInput';
+
 import './App.css';
 
 function App() {
+  const [tags,setTags]=useState([]);
+  const [error,setError]=useState("");
+
+  useEffect(()=>{
+    setError("");
+  },[]);
+
+  const changeHandler=()=>{
+    setError("");
+  };
+
+  const inputHandler=(e)=>{
+    if(e.target.value===""){
+      return setError("請填寫標籤");
+    }
+    else if(tags.find(tag=>(tag.toLowerCase()===e.target.value.toLowerCase()))){
+      return setError("標籤已存在");
+    }
+    else{
+      setTags([...tags,e.target.value]);
+      e.target.value="";
+    }
+  };
+
+  const removeHandler=(i)=>{
+      setTags(tags.filter((_,index)=>(index!==i)));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="section-padding bg-height">
+      <div className="container container-padding">
+        <TagsInput error={error} setError={setError} tags={tags} changeHandler={changeHandler} inputHandler={inputHandler} removeHandler={removeHandler} />
+      </div>
+    </section>
   );
 }
 

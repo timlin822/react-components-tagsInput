@@ -1,0 +1,45 @@
+.input-group{
+    width: 40%;
+    margin: 0 auto;
+}
+.input-group label{
+    font-size: 20px;
+    font-weight: 500;
+    color: #151515;
+}
+.tags-input{
+    width: 100%;
+    min-height: 40px;
+    color: #151515;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    margin-top: 10px;
+    padding: 3px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.tags-input .input{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 5px;
+    margin: 3px;
+}
+.tag{
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #003366;
+    border-radius: 5px;
+    padding: 8px 4px 8px 8px;
+    margin: 3px;
+}
+.tag-title{
+    margin-right: 10px;
+}
+.tag-close{
+    cursor: pointer;
+    font-size: 14px;
+}
